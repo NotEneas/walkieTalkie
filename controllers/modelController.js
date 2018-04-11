@@ -1,0 +1,1 @@
+userController = require('../model/user');
