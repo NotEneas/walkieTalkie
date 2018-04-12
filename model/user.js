@@ -41,7 +41,8 @@ var user = function () {
         },
         fcm_token: {
             type: String
-        }
+        },
+        active_users:[]
     });
 
     _userModel = mongoose.model('User', userModel);

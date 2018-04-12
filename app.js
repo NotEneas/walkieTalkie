@@ -7,21 +7,21 @@ var bodyParser = require('body-parser');
 var app = express();
 
 // Require JS Files
-environment=require('./config/environment');
+environment = require('./config/environment');
 require('./config/include');
 require('./config/db');
 require('./config/passport')(passport);
 
 var index = require('./routes/index');
 var userRoute = require('./routes/userRouter');
-
+var friendsRoute=require('./routes/friendsRouter');
 
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type,Authorization');
@@ -39,18 +39,18 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api', index);
-// app.use('/api/user', userRoute);
-
+app.use('/', index);
+app.use('/api/user', userRoute);
+app.use('/api/friend', friendsRoute);
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
