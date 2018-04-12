@@ -224,7 +224,7 @@ var friends = function () {
         friendModel: _friendsModel,
         getFriends: _getFriendsList,
         getFriendProfile: _getFriendProfile,
-        _getFriendRequest: _getFriendRequest,
+        getFriendRequest: _getFriendRequest,
         sendFriendRequest: _sendFriendRequest,
         acceptRequest: _acceptFriendRequest,
         declineRequest: _declineFriendRequest
