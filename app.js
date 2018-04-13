@@ -6,6 +6,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var app = express();
 
+server = require('http').createServer(app);
+io = require('socket.io')(server);
+server.listen(process.env.PORT || '3000');
+
 // Require JS Files
 environment = require('./config/environment');
 require('./config/include');

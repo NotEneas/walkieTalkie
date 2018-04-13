@@ -3,8 +3,8 @@ app = express();
 router = express.Router();
 mongoose = require('mongoose');
 Schema = mongoose.Schema;
-winston=require('winston');
-Joi=require('joi');
+winston = require('winston');
+Joi = require('joi');
 passport = require('passport');
 JwtStrategy = require('passport-jwt').Strategy;
 ExtractJwt = require('passport-jwt').ExtractJwt;
@@ -13,15 +13,14 @@ jwt = require('jsonwebtoken');
 
 // Inject Configs
 schemaValitator = require('./schemaValidator');
-message =require('./messages');
+message = require('./messages');
 controller = require('../controllers/modelController');
 
 
-var server = require('http').createServer(app);
-io = require('socket.io')(server);
-server.listen(environment.socketPort || process.env.socketPORT);
 
 
+
+require('../controllers/ioEvents');
 // Enable Developer Logs
 winston.add(winston.transports.File, {
     filename: 'logs/log.txt',

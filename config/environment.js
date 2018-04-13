@@ -19,7 +19,7 @@ if (process.env.npm_config_argv != undefined) {
     } else if (enviroment === "production" || enviroment === "prod") {
         config.port = 4000;
         config.dbName = "";
-        config.dbHost = process.env.dbuserName + ":" + process.env.dbPassword + "@ds249707.mlab.com:49707/chat";
+        config.dbHost = process.env.dbuserName + ":" + process.env.dbPassword + "@ds251845.mlab.com:51845/walkie_talkie";
         config.secretKey = "secret";
         config.socketPort = 5000;
         config.type = "production";
@@ -27,7 +27,7 @@ if (process.env.npm_config_argv != undefined) {
     else if (enviroment === "staging") {
         config.port = 4000;
         config.dbName = "";
-        config.dbHost = process.env.dbuserName + ":" + process.env.dbPassword + "@ds249707.mlab.com:49707/chat";
+        config.dbHost = process.env.dbuserName + ":" + process.env.dbPassword + "@ds251845.mlab.com:51845/walkie_talkie";
         config.secretKey = "secret";
         config.socketPort = 5000;
         config.type = "staging";
