@@ -1,3 +1,4 @@
+console.log(environment.dbHost)
 mongoose.connect('mongodb://' + environment.dbHost + environment.dbName, function(err) {
     if (!err) {
         console.log('Mongo DB Connected');
